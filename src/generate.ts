@@ -12,7 +12,10 @@ export async function generate(config: FinalConfig, contributors: RecoContributo
   const rows = chunkedContributors
     .map((chunk) => {
       const cells = chunk
-        .map((contributor) => config.templates.contributor({ config, contributor }))
+        .map((contributor) => {
+          const contributions = config.templates.contributions({ config, contributor })
+          return config.templates.contributor({ config, contributor, contributions })
+        })
         .join("")
       return config.templates.row({ config, cells })
     })

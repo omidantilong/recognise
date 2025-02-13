@@ -1,8 +1,12 @@
 import { readFile, writeFile } from "node:fs/promises"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import { keyBy } from "es-toolkit"
+
 import { generate } from "./generate"
-import { FinalConfig, PreConfig } from "@/types"
+import { dictionary } from "./dictionary"
+
+import { FinalConfig, PreConfig, Templates } from "@/types"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -47,7 +51,8 @@ async function loadConfig() {
     preConfig.files = ["README.md"]
   }
 
-  const templates = {
+  const templates: Required<Templates> = {
+    contributions: await loadTemplate("./templates/contributions"),
     contributor: await loadTemplate("./templates/contributor"),
     row: await loadTemplate("./templates/row"),
     table: await loadTemplate("./templates/table"),
@@ -56,6 +61,7 @@ async function loadConfig() {
   //console.log(templates)
   const config: FinalConfig = {
     ...preConfig,
+    dictionary: keyBy(dictionary, (d) => d.text),
     templates,
     cellWidth: +(100 / preConfig.cellsPerRow).toFixed(2),
   }
