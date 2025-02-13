@@ -10,10 +10,10 @@ export interface PreConfig {
 }
 
 export interface Templates {
-  contributor?: any
-  contributions?: any
-  row?: any
-  table?: any
+  contributor?: Function
+  contributions?: Function
+  row?: Function
+  table?: Function
 }
 
 export type Dictionary = Array<DictionaryEntry>
