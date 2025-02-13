@@ -12,7 +12,9 @@ export default function ({
   return html`
     <td valign="top" width="${config.cellWidth}%">
       <a href="${contributor.profile}">
-        <div><img width="${config.imageSize}px" src="${contributor.avatar_url}" /></div>
+        <div>
+          <img width="${config.imageSize}" src="${contributor.avatar_url}" />
+        </div>
         ${contributor.name}
       </a>
     </td>

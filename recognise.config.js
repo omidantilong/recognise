@@ -4,7 +4,7 @@ export default {
   //repoType: "github",
   //repoHost: "https://github.com",
   files: ["README.md"],
-  imageSize: 200,
+  imageSize: 100,
   cellsPerRow: 7,
   // commit: false,
   // commitConvention: "angular",

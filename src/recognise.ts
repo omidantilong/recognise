@@ -40,7 +40,7 @@ async function loadConfig() {
   }
 
   if (!preConfig.imageSize) {
-    preConfig.imageSize = 200
+    preConfig.imageSize = 100
   }
 
   if (!preConfig.files) {
