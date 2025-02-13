@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import { generate } from "./generate"
-import { FinalConfig } from "@/types"
+import { FinalConfig, PreConfig } from "@/types"
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -28,27 +28,47 @@ async function loadTemplate(path: string) {
   return template.default
 }
 
+async function loadConfig() {
+  const { default: preConfig }: { default: PreConfig } = await import(
+    resolve(__dirname, "../recognise.config.js")
+  ).catch((e) => console.error(e))
+
+  // TODO use a config loader to provide defaults
+
+  if (!preConfig.cellsPerRow) {
+    preConfig.cellsPerRow = 7
+  }
+
+  if (!preConfig.imageSize) {
+    preConfig.imageSize = 200
+  }
+
+  if (!preConfig.files) {
+    preConfig.files = ["README.md"]
+  }
+
+  const templates = {
+    contributor: await loadTemplate("./templates/contributor"),
+    row: await loadTemplate("./templates/row"),
+    table: await loadTemplate("./templates/table"),
+  }
+
+  //console.log(templates)
+  const config: FinalConfig = {
+    ...preConfig,
+    templates,
+    cellWidth: +(100 / preConfig.cellsPerRow).toFixed(2),
+  }
+
+  return config
+}
+
 async function run() {
   const contributors = await loadFileAsJSON("../.contributors")
   const readme = await loadFileAsString("../README.md")
 
   if (contributors && readme) {
-    const { default: preConfig } = await import(resolve(__dirname, "../recognise.config.js")).catch(
-      (e) => console.error(e)
-    )
-
-    const templates = {
-      contributor: await loadTemplate("./templates/contributor"),
-      row: await loadTemplate("./templates/row"),
-      table: await loadTemplate("./templates/table"),
-    }
-
-    //console.log(templates)
-    const config: FinalConfig = {
-      ...preConfig,
-      templates,
-      cellWidth: 100 / preConfig.cellsPerRow,
-    }
+    const config = await loadConfig()
 
     const html = await generate(config, contributors)
 
