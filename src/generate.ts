@@ -3,7 +3,7 @@ import { outdent } from "outdent"
 import type { FinalConfig, Contributor } from "./types"
 
 export async function generate(config: FinalConfig, contributors: Contributor[]) {
-  const html = {
+  const output = {
     contributors: "",
   }
 
@@ -21,7 +21,7 @@ export async function generate(config: FinalConfig, contributors: Contributor[])
     })
     .join("")
 
-  html.contributors = config.templates.table({ config, rows })
+  output.contributors = config.templates.table({ config, rows })
 
-  return outdent.string(html.contributors)
+  return outdent.string(output.contributors)
 }
