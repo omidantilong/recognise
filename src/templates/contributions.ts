@@ -1,4 +1,4 @@
-import { FinalConfig, RecoContributor } from "@/types"
+import { FinalConfig, Contributor } from "@/types"
 
 const html = String.raw
 
@@ -7,7 +7,7 @@ export default function ({
   contributor,
 }: {
   config: FinalConfig
-  contributor: RecoContributor
+  contributor: Contributor
 }) {
   const output = html`
     ${contributor.contributions

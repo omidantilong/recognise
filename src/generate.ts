@@ -1,8 +1,8 @@
 import { chunk } from "es-toolkit"
 import { outdent } from "outdent"
-import type { FinalConfig, RecoContributor } from "./types"
+import type { FinalConfig, Contributor } from "./types"
 
-export async function generate(config: FinalConfig, contributors: RecoContributor[]) {
+export async function generate(config: FinalConfig, contributors: Contributor[]) {
   const html = {
     contributors: "",
   }

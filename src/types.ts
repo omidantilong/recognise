@@ -29,7 +29,7 @@ export interface FinalConfig extends Required<PreConfig> {
   dictionary: DictionaryKeyed
 }
 
-export interface RecoContributor {
+export interface Contributor {
   login: string
   name: string
   avatar_url: string
