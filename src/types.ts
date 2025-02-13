@@ -6,15 +6,26 @@ export interface PreConfig {
   files: string[]
   imageSize: number
   cellsPerRow: number
-  templates?: {
-    contributor?: any
-    row?: any
-    table?: any
-  }
+  templates?: Templates
+}
+
+export interface Templates {
+  contributor?: any
+  contributions?: any
+  row?: any
+  table?: any
+}
+
+export type Dictionary = Array<DictionaryEntry>
+
+export interface DictionaryEntry {
+  icon: string
+  text: string
 }
 
 export interface FinalConfig extends Required<PreConfig> {
   cellWidth: number
+  dictionary: Dictionary
 }
 
 export interface RecoContributor {
