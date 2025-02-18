@@ -23,5 +23,8 @@
     "es-toolkit": "^1.32.0",
     "glob": "^11.0.1",
     "outdent": "^0.8.0"
+  },
+  "overrides": {
+    "esbuild": "^0.25.0"
   }
 }
