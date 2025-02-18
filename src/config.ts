@@ -1,10 +1,10 @@
 import { keyBy } from "es-toolkit"
 import { loadConfig as c12 } from "c12"
 
-import { dictionary } from "@/dictionary"
-import { loadTemplate } from "@/util"
+import { dictionary } from "./dictionary"
+import { loadTemplate } from "./util"
 
-import type { FinalConfig, PreConfig, Templates } from "@/types"
+import type { FinalConfig, PreConfig, Templates } from "./types"
 
 export function defineConfig(config: PreConfig) {
   return config

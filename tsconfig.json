@@ -4,11 +4,11 @@
     "allowImportingTsExtensions": true,
     "noEmit": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
+    // "paths": {
+    //   "@/*": [
+    //     "src/*"
+    //   ]
+    // },
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "module": "esnext",

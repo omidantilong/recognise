@@ -1,4 +1,4 @@
-import { FinalConfig, Contributor } from "@/types"
+import { FinalConfig, Contributor } from "../types"
 
 const html = String.raw
 

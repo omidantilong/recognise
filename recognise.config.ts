@@ -1,4 +1,4 @@
-import { defineConfig } from "@/config"
+import { defineConfig } from "./src/config"
 
 export default defineConfig({
   cellsPerRow: 7,

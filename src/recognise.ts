@@ -1,6 +1,6 @@
-import { generate } from "@/generate"
-import { loadFileAsJSON, loadFileAsString, injectOutput } from "@/util"
-import { loadConfig } from "@/config"
+import { generate } from "./generate"
+import { loadFileAsJSON, loadFileAsString, injectOutput } from "./util"
+import { loadConfig } from "./config"
 
 const FENCE_START = "<!-- recognise-start -->"
 const FENCE_END = "<!-- recognise-end -->"
