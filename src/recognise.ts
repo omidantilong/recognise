@@ -11,7 +11,7 @@ async function run() {
   if (contributors) {
     const config = await loadConfig()
     const html = await generate(config, contributors)
-    console.log(config.files)
+
     for (const entry of config.files) {
       const file = await loadFileAsString(entry)
 
