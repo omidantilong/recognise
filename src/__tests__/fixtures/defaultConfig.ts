@@ -13,7 +13,7 @@ export async function defaultConfig(): Promise<FinalConfig> {
     projectOwner: "omidantilong",
     repoHost: "https://github.com",
     repoType: "github",
-    sort: "alphabetical",
+    sort: false,
     templates: {
       contributions: () => "contributions",
       contributor: () => `<div>contributor</div>`,
