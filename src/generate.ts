@@ -8,12 +8,12 @@ export async function generate(config: FinalConfig, contributors: Contributor[])
   }
 
   const input = {
-    contributors,
+    contributors: contributors.filter((c) => !c.hide),
   }
 
   if (config.sort) {
     if (config.sort === "alphabetical") {
-      input.contributors = sortBy(contributors, ["name"])
+      input.contributors = sortBy(input.contributors, ["name"])
     }
   }
 
