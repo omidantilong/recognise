@@ -13,7 +13,9 @@ export default function ({
     ${contributor.contributions
       .map((c) => {
         const contribution = config.dictionary[c]
-        return html`<span title="${contribution.text}">${contribution.icon}</span>`
+        return contribution
+          ? html`<span title="${contribution.text}">${contribution.icon}</span>`
+          : ""
       })
       .join("")}
   `
