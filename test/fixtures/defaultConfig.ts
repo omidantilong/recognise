@@ -1,6 +1,6 @@
 import { FinalConfig } from "../../src/types"
 import { dictionary } from "../../src/dictionary"
-import { loadTemplate } from "../../src/util"
+//import { loadTemplate } from "../../src/util"
 
 export async function defaultConfig(): Promise<FinalConfig> {
   return {
@@ -15,10 +15,14 @@ export async function defaultConfig(): Promise<FinalConfig> {
     repoType: "github",
     sort: "alphabetical",
     templates: {
-      contributions: await loadTemplate("./templates/contributions"),
-      contributor: await loadTemplate("./templates/contributor"),
-      row: await loadTemplate("./templates/row"),
-      table: await loadTemplate("./templates/table"),
+      contributions: () => "contributions",
+      contributor: () => `<div>contributor</div>`,
+      row: ({ cells }: { cells: string }) => `<tr>${cells}</tr>`,
+      table: ({ rows }: { rows: string }) => `<table><tbody>${rows}</tbody></table>`,
+      // contributions: await loadTemplate("./templates/contributions"),
+      // contributor: await loadTemplate("./templates/contributor"),
+      // row: await loadTemplate("./templates/row"),
+      // table: await loadTemplate("./templates/table"),
     },
   }
 }
