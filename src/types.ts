@@ -51,5 +51,5 @@ export interface Contributor {
   avatar_url: string
   profile: string
   contributions: string[]
-  hide: boolean
+  hide?: boolean
 }
