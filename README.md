@@ -7,7 +7,7 @@
 <tr>
   
 <td align="center" valign="top" width="14.29%">
-  <a href="https://paginegialle.it/erat/nulla/tempus/vivamus/in/felis.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -17,7 +17,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://msn.com/odio/consequat.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -27,7 +27,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://washington.edu/quis/turpis/sed/ante/vivamus/tortor/duis.jsp">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -37,7 +37,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://sfgate.com/sapien/ut/nunc/vestibulum/ante/ipsum/primis.aspx">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -47,7 +47,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://google.cn/nisl/nunc/nisl/duis.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -57,7 +57,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://umich.edu/habitasse/platea/dictumst/maecenas.aspx">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -67,7 +67,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://mediafire.com/risus/auctor/sed/tristique/in/tempus.js">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -81,7 +81,7 @@
 <tr>
   
 <td align="center" valign="top" width="14.29%">
-  <a href="http://marriott.com/donec/posuere/metus.png">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -91,7 +91,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://dropbox.com/quam/pharetra/magna/ac/consequat/metus/sapien.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -101,7 +101,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://psu.edu/potenti/in/eleifend/quam/a/odio/in.js">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -111,7 +111,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://telegraph.co.uk/quam/turpis.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -121,7 +121,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://marriott.com/ut/volutpat/sapien/arcu/sed.json">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -131,7 +131,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://deliciousdays.com/morbi/a/ipsum/integer/a/nibh.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -141,7 +141,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://qq.com/nulla/tempus.aspx">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -155,7 +155,7 @@
 <tr>
   
 <td align="center" valign="top" width="14.29%">
-  <a href="http://tiny.cc/posuere/cubilia/curae/duis/faucibus/accumsan.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -165,7 +165,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://unicef.org/volutpat.jsp">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -175,7 +175,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://cmu.edu/aliquet/maecenas/leo/odio.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -185,7 +185,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://wiley.com/eu/tincidunt/in/leo/maecenas/pulvinar/lobortis.js">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -195,7 +195,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://bbb.org/consequat.js">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -205,7 +205,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://yellowpages.com/id/turpis/integer.aspx">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -215,7 +215,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://boston.com/pede/ullamcorper/augue.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -229,7 +229,7 @@
 <tr>
   
 <td align="center" valign="top" width="14.29%">
-  <a href="http://va.gov/maecenas/leo/odio/condimentum/id/luctus.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -239,7 +239,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://apache.org/adipiscing/lorem/vitae/mattis/nibh/ligula.jsp">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -249,7 +249,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://businessweek.com/non/pretium/quis/lectus/suspendisse/potenti/in.html">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -259,7 +259,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://intel.com/venenatis/lacinia/aenean.png">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -269,7 +269,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://goo.ne.jp/sit/amet/eleifend/pede/libero/quis.jsp">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -279,7 +279,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://webnode.com/eget/eros/elementum/pellentesque.js">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -289,7 +289,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="http://skyrock.com/aliquam/non/mauris/morbi/non/lectus/aliquam.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -303,7 +303,7 @@
 <tr>
   
 <td align="center" valign="top" width="14.29%">
-  <a href="https://liveinternet.ru/rhoncus/aliquam/lacus/morbi.jpg">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
@@ -313,7 +313,7 @@
 </td>
 
 <td align="center" valign="top" width="14.29%">
-  <a href="https://myspace.com/vivamus/in/felis/eu/sapien.xml">
+  <a href="https://example.com">
     <div>
       <img width="100" src="https://place-hold.it/250x250" />
     </div>
