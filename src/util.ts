@@ -1,9 +1,10 @@
 import { readFile, writeFile } from "node:fs/promises"
-import { dirname, resolve } from "node:path"
-import { fileURLToPath } from "node:url"
+import { resolve } from "node:path"
+//import { dirname, resolve } from "node:path"
+//import { fileURLToPath } from "node:url"
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = dirname(__filename)
 
 export async function loadFileAsJSON(path: string) {
   return await readFile(resolve(process.cwd(), path))
@@ -17,11 +18,11 @@ export async function loadFileAsString(path: string) {
     .catch((e) => console.error(e))
 }
 
-export async function loadTemplate(path: string) {
-  const template = await import(resolve(__dirname, path)).catch((e) => console.error(e))
+// export async function loadTemplate(path: string) {
+//   const template = await import(resolve(__dirname, path)).catch((e) => console.error(e))
 
-  return template.default
-}
+//   return template.default
+// }
 
 export async function injectOutput(path: string, output: string) {
   try {

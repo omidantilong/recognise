@@ -1,9 +1,9 @@
 import { loadConfig as c12 } from "c12"
 
 import { dictionary } from "./dictionary"
-import { loadTemplate } from "./util"
+import * as templates from "./templates"
 
-import type { FinalConfig, PreConfig, Templates } from "./types"
+import type { FinalConfig, PreConfig } from "./types"
 
 export function defineConfig(config: PreConfig) {
   return config
@@ -24,20 +24,17 @@ export async function loadConfig() {
     },
   })
 
-  const templates: Required<Templates> = {
-    contributions: await loadTemplate("./templates/contributions"),
-    contributor: await loadTemplate("./templates/contributor"),
-    row: await loadTemplate("./templates/row"),
-    table: await loadTemplate("./templates/table"),
-  }
-
   const config: FinalConfig = {
     ...preConfig,
     cellWidth: +(100 / preConfig.cellsPerRow).toFixed(2),
     files: Array.from(new Set(preConfig.files)),
     dictionary,
-    templates,
+    templates: {
+      contributions: preConfig.templates?.contributions || templates.contributions,
+      contributor: preConfig.templates?.contributor || templates.contributor,
+      row: preConfig.templates?.row || templates.row,
+      table: preConfig.templates?.table || templates.table,
+    },
   }
-
   return config
 }

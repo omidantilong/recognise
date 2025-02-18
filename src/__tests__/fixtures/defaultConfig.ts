@@ -1,5 +1,5 @@
-import { FinalConfig } from "../../src/types"
-import { dictionary } from "../../src/dictionary"
+import { FinalConfig } from "../../types"
+import { dictionary } from "../../dictionary"
 //import { loadTemplate } from "../../src/util"
 
 export async function defaultConfig(): Promise<FinalConfig> {
