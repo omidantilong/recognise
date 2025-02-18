@@ -2,24 +2,21 @@ import { chunk, sortBy } from "es-toolkit"
 import { outdent } from "outdent"
 import type { FinalConfig, Contributor } from "./types"
 
-export async function generate(config: FinalConfig, contributors: Contributor[]) {
-  const output = {
-    contributors: "",
-  }
-
-  const input = {
-    contributors: contributors.filter((c) => !c.hide),
-  }
+export function prepare(config: FinalConfig, contributors: Contributor[]): Contributor[][] {
+  let prepared = contributors.filter((c) => !c.hide)
 
   if (config.sort) {
     if (config.sort === "alphabetical") {
-      input.contributors = sortBy(input.contributors, ["name"])
+      prepared = sortBy(prepared, ["name"])
     }
   }
 
-  const chunkedContributors = chunk(input.contributors, config.cellsPerRow)
+  return chunk(prepared, config.cellsPerRow)
+}
 
-  const rows = chunkedContributors
+export async function generate(config: FinalConfig, contributors: Contributor[]): Promise<string> {
+  const chunks = prepare(config, contributors)
+  const rows = chunks
     .map((chunk) => {
       const cells = chunk
         .map((contributor) => {
@@ -31,7 +28,5 @@ export async function generate(config: FinalConfig, contributors: Contributor[])
     })
     .join("")
 
-  output.contributors = config.templates.table({ config, rows })
-
-  return outdent.string(output.contributors)
+  return outdent.string(config.templates.table({ config, rows }))
 }
