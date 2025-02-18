@@ -6,6 +6,12 @@ describe("row template", () => {
   it("injects cells", async () => {
     const html = row({ cells: "<td>i love pizza</td>" })
 
-    expect(await minify(html, { collapseWhitespace: true })).toBe("<tr><td>i love pizza</td></tr>")
+    expect(html).toMatchInlineSnapshot(`
+      "
+          <tr>
+            <td>i love pizza</td>
+          </tr>
+        "
+    `)
   })
 })
