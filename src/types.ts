@@ -7,6 +7,7 @@ export interface PreConfig {
   imageSize: number
   cellsPerRow: number
   templates?: Templates
+  sort: "alphabetical" | false
 }
 
 export interface FinalConfig extends Required<PreConfig> {

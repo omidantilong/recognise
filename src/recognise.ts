@@ -51,6 +51,10 @@ async function loadConfig() {
     preConfig.files = ["README.md"]
   }
 
+  if (!preConfig.sort) {
+    preConfig.sort = false
+  }
+
   const templates: Required<Templates> = {
     contributions: await loadTemplate("./templates/contributions"),
     contributor: await loadTemplate("./templates/contributor"),
@@ -58,7 +62,6 @@ async function loadConfig() {
     table: await loadTemplate("./templates/table"),
   }
 
-  //console.log(templates)
   const config: FinalConfig = {
     ...preConfig,
     dictionary: keyBy(dictionary, (d) => d.text),

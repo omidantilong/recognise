@@ -1,4 +1,4 @@
-import { chunk } from "es-toolkit"
+import { chunk, sortBy } from "es-toolkit"
 import { outdent } from "outdent"
 import type { FinalConfig, Contributor } from "./types"
 
@@ -7,7 +7,17 @@ export async function generate(config: FinalConfig, contributors: Contributor[])
     contributors: "",
   }
 
-  const chunkedContributors = chunk(contributors, config.cellsPerRow)
+  const input = {
+    contributors,
+  }
+
+  if (config.sort) {
+    if (config.sort === "alphabetical") {
+      input.contributors = sortBy(contributors, ["name"])
+    }
+  }
+
+  const chunkedContributors = chunk(input.contributors, config.cellsPerRow)
 
   const rows = chunkedContributors
     .map((chunk) => {
