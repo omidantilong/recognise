@@ -1,6 +1,6 @@
 import { chunk, sortBy } from "es-toolkit"
 import { outdent } from "outdent"
-import type { FinalConfig, Contributor } from "./types"
+import type { FinalConfig, Contributor } from "@/types"
 
 export async function generate(config: FinalConfig, contributors: Contributor[]) {
   const output = {
