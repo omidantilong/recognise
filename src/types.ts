@@ -1,13 +1,13 @@
 export interface PreConfig {
+  cellsPerRow: number
+  files: string[]
+  imageSize: number
   projectName: string
   projectOwner: string
   repoType: "gitlab" | "github"
   repoHost: string
-  files: string[]
-  imageSize: number
-  cellsPerRow: number
-  templates?: Templates
   sort: "alphabetical" | false
+  templates?: Templates
 }
 
 export interface FinalConfig extends Required<PreConfig> {
