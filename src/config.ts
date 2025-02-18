@@ -1,4 +1,3 @@
-import { keyBy } from "es-toolkit"
 import { loadConfig as c12 } from "c12"
 
 import { dictionary } from "./dictionary"
@@ -36,7 +35,7 @@ export async function loadConfig() {
     ...preConfig,
     cellWidth: +(100 / preConfig.cellsPerRow).toFixed(2),
     files: Array.from(new Set(preConfig.files)),
-    dictionary: keyBy(dictionary, (d) => d.text),
+    dictionary,
     templates,
   }
 

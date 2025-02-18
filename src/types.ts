@@ -12,7 +12,7 @@ export interface PreConfig {
 
 export interface FinalConfig extends Required<PreConfig> {
   cellWidth: number
-  dictionary: DictionaryKeyed
+  dictionary: Dictionary
   templates: Required<Templates>
 }
 
@@ -38,8 +38,7 @@ export interface Templates {
 //   table?: () => string
 // }
 
-export type Dictionary = Array<DictionaryEntry>
-export type DictionaryKeyed = Record<string, DictionaryEntry>
+export type Dictionary = Record<string, DictionaryEntry>
 
 export interface DictionaryEntry {
   icon: string
