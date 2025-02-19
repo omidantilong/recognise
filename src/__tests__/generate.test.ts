@@ -15,7 +15,7 @@ describe("list prepare", async () => {
       { ...contributors[2], hide: true },
     ]
 
-    expect(prepare(config, contributorsWithHidden, "table")[0]).toHaveLength(2)
+    expect(prepare(contributorsWithHidden, config.sort, config.table.cells)[0]).toHaveLength(2)
   })
 
   it("pushes pinned contributors to top", () => {
@@ -27,19 +27,14 @@ describe("list prepare", async () => {
       { ...contributors[4], pin: true },
     ]
 
-    const prepared = prepare(config, contributorsWithHidden, "table")
+    const prepared = prepare(contributorsWithHidden, config.sort, config.table.cells)
 
     expect(prepared[0][0]).toHaveProperty("pin", true)
     expect(prepared[0][1]).toHaveProperty("pin", true)
   })
 
   it("sorts names a-z when sort is alphabetical", () => {
-    const configWithSort: FinalConfig = {
-      ...config,
-      sort: "alphabetical",
-    }
-
-    const prepared = prepare(configWithSort, contributors, "table")
+    const prepared = prepare(contributors, "name", config.table.cells)
     expect(prepared[0][0].name).toBe("Abel Cominoli")
     expect(prepared.at(-1)?.at(-1)?.name).toBe("Whitney Niblo")
   })
@@ -47,7 +42,7 @@ describe("list prepare", async () => {
   it("sorts names a-z and preserves pins", () => {
     const configWithSort: FinalConfig = {
       ...config,
-      sort: "alphabetical",
+      sort: "name",
     }
 
     const contributorsWithHidden: Contributor[] = [
@@ -59,7 +54,7 @@ describe("list prepare", async () => {
       { ...contributors[5], pin: true },
     ]
 
-    const prepared = prepare(configWithSort, contributorsWithHidden, "table")
+    const prepared = prepare(contributorsWithHidden, "name", config.table.cells)
 
     expect(prepared[0][0].pin).toBe(true)
     expect(prepared[0][1].pin).toBe(true)
@@ -74,13 +69,13 @@ describe("list prepare", async () => {
   })
 
   it("does not sort when no sort option provided", () => {
-    const prepared = prepare(config, contributors, "table")
+    const prepared = prepare(contributors, false, config.table.cells)
     expect(prepared[0][0].name).toBe("Pizza Guy")
     expect(prepared.at(-1)?.at(-1)?.name).toBe("Pauletta Kivits")
   })
 
   it("chunks list into configured cellsPerRow value", () => {
-    const prepared = prepare(config, contributors, "table")
+    const prepared = prepare(contributors, false, config.table.cells)
     expect(prepared).toHaveLength(5)
     expect(prepared[0]).toHaveLength(7)
     expect(prepared[4]).toHaveLength(3)

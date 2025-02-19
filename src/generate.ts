@@ -1,27 +1,30 @@
 import { chunk, sortBy } from "es-toolkit"
 import { outdent } from "outdent"
-import type { FinalConfig, Contributor } from "./types"
+import type { FinalConfig, Contributor, SortOptions } from "./types"
 
 export function prepare(
-  config: FinalConfig,
   contributors: Contributor[],
-  type: "table" | "image"
+  sort: SortOptions,
+  cells: number
 ): Contributor[][] {
-  let prepared = contributors.filter((c) => !c.hide)
+  //let sortFields: Array<keyof Contributor | ((c: Contributor) => {})> = []
+  let sortFields: Array<keyof Contributor> = []
 
-  if (config.sort) {
-    if (config.sort === "alphabetical") {
-      prepared = sortBy(prepared, [(c) => !c.pin, "name"])
-    }
-  } else {
-    prepared = sortBy(prepared, [(c) => !c.pin])
+  if (sort === "name") {
+    sortFields.push("name")
+    sortFields.push("login")
   }
 
-  return chunk(prepared, config[type].cells)
+  const prepared = sortBy(
+    contributors.filter((c) => !c.hide),
+    [(c) => !c.pin, ...sortFields]
+  )
+
+  return chunk(prepared, cells)
 }
 
 export async function generate(config: FinalConfig, contributors: Contributor[]): Promise<string> {
-  const chunks = prepare(config, contributors, "table")
+  const chunks = prepare(contributors, config.sort, config.table.cells)
   const rows = chunks
     .map((chunk) => {
       const cells = chunk
@@ -41,7 +44,7 @@ export async function generateSVG(
   config: FinalConfig,
   contributors: Contributor[]
 ): Promise<string> {
-  const chunks = prepare(config, contributors, "image")
+  const chunks = prepare(contributors, config.sort, config.image.cells)
   const rows = (
     await Promise.all(
       chunks.map(async (chunk, r) => {

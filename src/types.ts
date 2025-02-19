@@ -6,7 +6,7 @@ export interface PreConfig {
   projectOwner: string
   repoType: "gitlab" | "github"
   repoHost: string
-  sort: "alphabetical" | false
+  sort?: SortOptions
   table?: Omit<TableProps, "cellWidth">
   image?: ImageProps
 }
@@ -21,7 +21,6 @@ export interface TableProps {
   cells: number
   cellWidth: number
   templates?: TableTemplates
-  cellWidth: number
 }
 
 export interface ImageProps {
@@ -56,13 +55,6 @@ export interface ImageTemplates {
 //   table?: () => string
 // }
 
-export type Dictionary = Record<string, DictionaryEntry>
-
-export interface DictionaryEntry {
-  icon: string
-  text: string
-}
-
 export interface Contributor {
   login?: string
   name: string
@@ -72,3 +64,12 @@ export interface Contributor {
   hide?: boolean
   pin?: boolean
 }
+
+export interface DictionaryEntry {
+  icon: string
+  text: string
+}
+
+export type Dictionary = Record<string, DictionaryEntry>
+
+export type SortOptions = "name" | false

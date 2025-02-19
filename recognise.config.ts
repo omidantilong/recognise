@@ -6,7 +6,7 @@ export default defineConfig({
   projectOwner: "omidantilong",
   repoType: "github",
   repoHost: "https://github.com",
-  sort: "alphabetical",
+  sort: "name",
   table: {
     cells: 7,
   },
