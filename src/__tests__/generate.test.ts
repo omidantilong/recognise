@@ -9,16 +9,28 @@ describe("list prepare", async () => {
   const config = await defaultConfig()
 
   it("filters hidden contributors", () => {
-    const inputWithHidden: Contributor[] = [
+    const contributorsWithHidden: Contributor[] = [
       contributors[0],
       contributors[1],
-      {
-        ...contributors[2],
-        hide: true,
-      },
+      { ...contributors[2], hide: true },
     ]
 
-    expect(prepare(config, inputWithHidden)[0]).toHaveLength(2)
+    expect(prepare(config, contributorsWithHidden)[0]).toHaveLength(2)
+  })
+
+  it("pushes pinned contributors to top", () => {
+    const contributorsWithHidden: Contributor[] = [
+      contributors[0],
+      contributors[1],
+      { ...contributors[2], pin: true },
+      contributors[3],
+      { ...contributors[4], pin: true },
+    ]
+
+    const prepared = prepare(config, contributorsWithHidden)
+
+    expect(prepared[0][0]).toHaveProperty("pin", true)
+    expect(prepared[0][1]).toHaveProperty("pin", true)
   })
 
   it("sorts names a-z when sort is alphabetical", () => {
@@ -30,6 +42,35 @@ describe("list prepare", async () => {
     const prepared = prepare(configWithSort, contributors)
     expect(prepared[0][0].name).toBe("Abel Cominoli")
     expect(prepared.at(-1)?.at(-1)?.name).toBe("Whitney Niblo")
+  })
+
+  it("sorts names a-z and preserves pins", () => {
+    const configWithSort: FinalConfig = {
+      ...config,
+      sort: "alphabetical",
+    }
+
+    const contributorsWithHidden: Contributor[] = [
+      contributors[0],
+      contributors[1],
+      { ...contributors[2], pin: true },
+      contributors[3],
+      { ...contributors[4], pin: true },
+      { ...contributors[5], pin: true },
+    ]
+
+    const prepared = prepare(configWithSort, contributorsWithHidden)
+
+    expect(prepared[0][0].pin).toBe(true)
+    expect(prepared[0][1].pin).toBe(true)
+    expect(prepared[0][2].pin).toBe(true)
+
+    expect(prepared[0][0].name).toBe("Brittany Luckey")
+    expect(prepared[0][1].name).toBe("Cooper Restorick")
+    expect(prepared[0][2].name).toBe("Sada Clouter")
+    expect(prepared[0][3].name).toBe("Elli Roony")
+    expect(prepared[0][4].name).toBe("Franky Hare")
+    expect(prepared[0][5].name).toBe("Pizza Guy")
   })
 
   it("does not sort when no sort option provided", () => {
@@ -46,10 +87,4 @@ describe("list prepare", async () => {
   })
 })
 
-describe("html generator", async () => {
-  it("sets the correct cell width", async () => {
-    // const config = await defaultConfig()
-    // const output = await generate(config, contributors)
-    // console.log(output)
-  })
-})
+//describe("html generator", async () => {})

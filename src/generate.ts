@@ -7,8 +7,10 @@ export function prepare(config: FinalConfig, contributors: Contributor[]): Contr
 
   if (config.sort) {
     if (config.sort === "alphabetical") {
-      prepared = sortBy(prepared, ["name"])
+      prepared = sortBy(prepared, [(c) => !c.pin, "name"])
     }
+  } else {
+    prepared = sortBy(prepared, [(c) => !c.pin])
   }
 
   return chunk(prepared, config.cellsPerRow)

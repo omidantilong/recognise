@@ -46,10 +46,11 @@ export interface DictionaryEntry {
 }
 
 export interface Contributor {
-  login: string
+  login?: string
   name: string
   avatar_url: string
-  profile: string
-  contributions: string[]
+  profile?: string
+  contributions?: string[]
   hide?: boolean
+  pin?: boolean
 }
