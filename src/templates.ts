@@ -9,6 +9,8 @@ export function contributions({
   config: FinalConfig
   contributor: Contributor
 }) {
+  if (!contributor.contributions) return ""
+
   const output = html`
     ${contributor.contributions
       .map((c) => {

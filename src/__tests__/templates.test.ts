@@ -17,6 +17,15 @@ describe("contributions", async () => {
       `"<span title="code">💻</span><span title="design">🎨</span>"`
     )
   })
+
+  it("returns an empty string if no contributions", async () => {
+    const html = templates.contributions({
+      config,
+      contributor: { ...singleContributor, contributions: undefined },
+    })
+
+    expect(html).toBe("")
+  })
 })
 
 describe("contributor", async () => {
