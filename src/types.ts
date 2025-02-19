@@ -1,26 +1,43 @@
+import type { RequiredDeep } from "type-fest"
+
 export interface PreConfig {
-  cellsPerRow: number
   files: string[]
-  imageSize: number
   projectName: string
   projectOwner: string
   repoType: "gitlab" | "github"
   repoHost: string
   sort: "alphabetical" | false
-  templates?: Templates
+  table?: Omit<TableProps, "cellWidth">
+  image?: ImageProps
 }
 
 export interface FinalConfig extends Required<PreConfig> {
-  cellWidth: number
   dictionary: Dictionary
-  templates: Required<Templates>
+  table: RequiredDeep<TableProps>
+  image: RequiredDeep<ImageProps>
 }
 
-export interface Templates {
+export interface TableProps {
+  cells: number
+  templates?: TableTemplates
+  cellWidth: number
+}
+
+export interface ImageProps {
+  cells: number
+  templates?: ImageTemplates
+}
+
+export interface TableTemplates {
   contributor?: Function
   contributions?: Function
   row?: Function
-  table?: Function
+  container?: Function
+}
+
+export interface ImageTemplates {
+  contributor?: Function
+  container?: Function
 }
 
 // export interface Templates {

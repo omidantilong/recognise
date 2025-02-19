@@ -24,7 +24,7 @@ export async function loadFileAsString(path: string) {
 //   return template.default
 // }
 
-export async function injectOutput(path: string, output: string) {
+export async function writeOutput(path: string, output: string) {
   try {
     await writeFile(resolve(process.cwd(), path), output)
   } catch (e) {

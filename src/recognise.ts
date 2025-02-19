@@ -1,5 +1,5 @@
-import { generate } from "./generate"
-import { loadFileAsJSON, loadFileAsString, injectOutput } from "./util"
+import { generate, generateSVG } from "./generate"
+import { loadFileAsJSON, loadFileAsString, writeOutput } from "./util"
 import { loadConfig } from "./config"
 
 const FENCE_START = "<!-- recognise-start -->"
@@ -10,22 +10,29 @@ async function run() {
 
   if (contributors) {
     const config = await loadConfig()
-    const html = await generate(config, contributors)
 
-    for (const entry of config.files) {
-      const file = await loadFileAsString(entry)
+    if (config.table) {
+      const html = await generate(config, contributors)
+      for (const entry of config.files) {
+        const file = await loadFileAsString(entry)
 
-      if (file) {
-        const fenceStartPos = file.indexOf(FENCE_START)
-        const fenceEndPos = file.indexOf(FENCE_END)
+        if (file) {
+          const fenceStartPos = file.indexOf(FENCE_START)
+          const fenceEndPos = file.indexOf(FENCE_END)
 
-        const readmeBeforeFence = file.slice(0, fenceStartPos + FENCE_START.length)
-        const readmeAfterFence = file.slice(fenceEndPos, -1)
+          const readmeBeforeFence = file.slice(0, fenceStartPos + FENCE_START.length)
+          const readmeAfterFence = file.slice(fenceEndPos, -1)
 
-        const output = readmeBeforeFence + "\n" + html + "\n" + readmeAfterFence + "\n"
+          const table = readmeBeforeFence + "\n" + html + "\n" + readmeAfterFence + "\n"
 
-        await injectOutput(entry, output)
+          await writeOutput(entry, table)
+        }
       }
+    }
+
+    if (config.image) {
+      const svg = await generateSVG(config, contributors)
+      await writeOutput("contributors.svg", svg)
     }
   }
 }

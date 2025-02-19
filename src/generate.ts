@@ -2,7 +2,11 @@ import { chunk, sortBy } from "es-toolkit"
 import { outdent } from "outdent"
 import type { FinalConfig, Contributor } from "./types"
 
-export function prepare(config: FinalConfig, contributors: Contributor[]): Contributor[][] {
+export function prepare(
+  config: FinalConfig,
+  contributors: Contributor[],
+  type: "table" | "image"
+): Contributor[][] {
   let prepared = contributors.filter((c) => !c.hide)
 
   if (config.sort) {
@@ -13,22 +17,56 @@ export function prepare(config: FinalConfig, contributors: Contributor[]): Contr
     prepared = sortBy(prepared, [(c) => !c.pin])
   }
 
-  return chunk(prepared, config.cellsPerRow)
+  return chunk(prepared, config[type].cells)
 }
 
 export async function generate(config: FinalConfig, contributors: Contributor[]): Promise<string> {
-  const chunks = prepare(config, contributors)
+  const chunks = prepare(config, contributors, "table")
   const rows = chunks
     .map((chunk) => {
       const cells = chunk
         .map((contributor) => {
-          const contributions = config.templates.contributions({ config, contributor })
-          return config.templates.contributor({ config, contributor, contributions })
+          const contributions = config.table.templates.contributions({ config, contributor })
+          return config.table.templates.contributor({ config, contributor, contributions })
         })
         .join("")
-      return config.templates.row({ config, cells })
+      return config.table.templates.row({ config, cells })
     })
     .join("")
 
-  return outdent.string(config.templates.table({ config, rows }))
+  return outdent.string(config.table.templates.container({ config, rows }))
+}
+
+export async function generateSVG(
+  config: FinalConfig,
+  contributors: Contributor[]
+): Promise<string> {
+  const chunks = prepare(config, contributors, "image")
+  const rows = (
+    await Promise.all(
+      chunks.map(async (chunk, r) => {
+        const cells = (
+          await Promise.all(
+            chunk.map(async (contributor, i) => {
+              const x = i * 64
+              const y = r * 64
+
+              const image = await fetch(contributor.avatar_url)
+                .then((res) => res.arrayBuffer())
+                .then((blob) => Buffer.from(blob).toString("base64"))
+
+              return await config.image.templates.contributor({ config, contributor, image, x, y })
+            })
+          )
+        ).join("")
+        return cells
+      })
+    )
+  ).join("")
+
+  return await config.image.templates.container({
+    rows,
+    width: config.image.cells * 64,
+    height: chunks.length * 64,
+  })
 }
