@@ -1,5 +1,13 @@
 # Recognise
 
+WIP!
+
+A small library to help you recognise all contributions to a project.
+
+Heavily inspired by [all-contributors](https://allcontributors.org/) and [contrib.rocks](https://contrib.rocks/).
+
+## Classic
+
 <!-- recognise-start -->
 <table>
   <tbody>
@@ -327,3 +335,7 @@
   </tbody>
 </table>
 <!-- recognise-end -->
+
+## SVG Version
+
+<img src="/contributors.svg" />
