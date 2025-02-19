@@ -19,6 +19,7 @@ export interface FinalConfig extends Required<PreConfig> {
 
 export interface TableProps {
   cells: number
+  cellWidth: number
   templates?: TableTemplates
   cellWidth: number
 }
