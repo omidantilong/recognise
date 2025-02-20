@@ -100,14 +100,14 @@ describe("image > contributor", async () => {
 
     expect(html).toMatchInlineSnapshot(`
       "<g>
-            <circle cx="32" cy="32" r="31" stroke="black" strokeWidth="1" fill="none" />
+            <circle cx="48" cy="48" r="47" stroke="black" strokeWidth="1" fill="none" />
             <image
               x="1"
               y="1"
-              width="62"
-              height="62"
+              width="94"
+              height="94"
               href="data:image/jpg;base64,undefined"
-              clip-path="circle()"
+              clip-path="url(#clip-circle)"
           /></g>"
     `)
   })
@@ -129,6 +129,11 @@ describe("image > container", async () => {
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
           >
+            <defs>
+              <clipPath id="clip-circle" clipPathUnits="objectBoundingBox">
+                <circle cx="0.5" cy="0.5" r="0.5" />
+              </clipPath>
+            </defs>
             <g><circle /><image /></g>
           </svg>"
     `)

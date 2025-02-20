@@ -17,14 +17,14 @@ export const image: Required<ImageTemplates> = {
     y: number
   }) {
     return html`<g>
-      <circle cx="${32 + x}" cy="${32 + y}" r="31" stroke="black" strokeWidth="1" fill="none" />
+      <circle cx="${48 + x}" cy="${48 + y}" r="47" stroke="black" strokeWidth="1" fill="none" />
       <image
         x="${1 + x}"
         y="${1 + y}"
-        width="62"
-        height="62"
+        width="94"
+        height="94"
         href="data:image/jpg;base64,${image}"
-        clip-path="circle()"
+        clip-path="url(#clip-circle)"
     /></g>`
   },
 
@@ -44,6 +44,11 @@ export const image: Required<ImageTemplates> = {
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
+      <defs>
+        <clipPath id="clip-circle" clipPathUnits="objectBoundingBox">
+          <circle cx="0.5" cy="0.5" r="0.5" />
+        </clipPath>
+      </defs>
       ${rows}
     </svg>`
   },
