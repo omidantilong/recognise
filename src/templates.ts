@@ -86,14 +86,22 @@ export const table: Required<TableTemplates> = {
     contributor: Contributor
     contributions: string
   }) {
+    const tags = {
+      openLink: "",
+      closeLink: "",
+    }
+    if (config.table.links === true && contributor.profile && contributor.link !== false) {
+      tags.openLink = `<a href="${contributor.profile}">`
+      tags.closeLink = `</a>`
+    }
     return html`
       <td align="center" valign="top" width="${config.table.cellWidth}%">
-        <a href="${contributor.profile}">
-          <div>
-            <img width="100" src="${contributor.avatar_url}" />
-          </div>
-          <div><small>${contributor.name}</small></div>
-        </a>
+        ${tags.openLink}
+        <div>
+          <img width="100" src="${contributor.avatar_url}" />
+        </div>
+        <div><small>${contributor.name}</small></div>
+        ${tags.closeLink}
         <div>${contributions}</div>
       </td>
     `

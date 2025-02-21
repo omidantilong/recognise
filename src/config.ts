@@ -21,6 +21,7 @@ export async function loadConfig() {
       sort: false,
       table: {
         cells: 7,
+        links: true,
         templates: { ...templates.table },
       },
       image: {

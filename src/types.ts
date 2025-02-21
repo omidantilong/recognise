@@ -21,6 +21,7 @@ export interface TableProps {
   cells: number
   cellWidth: number
   templates?: TableTemplates
+  links?: boolean
 }
 
 export interface ImageProps {
@@ -63,6 +64,7 @@ export interface Contributor {
   contributions?: string[]
   hide?: boolean
   pin?: boolean
+  link?: boolean
 }
 
 export interface DictionaryEntry {

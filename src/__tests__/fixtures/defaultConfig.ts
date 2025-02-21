@@ -14,6 +14,7 @@ export async function defaultConfig(): Promise<FinalConfig> {
     table: {
       cellWidth: 14.29,
       cells: 7,
+      links: true,
       templates: {
         contributions: () => "contributions",
         contributor: () => `<div>contributor</div>`,

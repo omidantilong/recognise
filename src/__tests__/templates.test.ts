@@ -32,7 +32,7 @@ describe("table > contributor", async () => {
   const config = await defaultConfig()
   const singleContributor = contributors[0]
 
-  it("outputs single contributor cell", async () => {
+  it("outputs contributor", async () => {
     const html = templates.table.contributor({
       config,
       contributor: singleContributor,
@@ -43,11 +43,79 @@ describe("table > contributor", async () => {
       "
             <td align="center" valign="top" width="14.29%">
               <a href="https://example.com">
-                <div>
-                  <img width="100" src="https://place-hold.it/250x250" />
-                </div>
-                <div><small>Pizza Guy</small></div>
+              <div>
+                <img width="100" src="https://place-hold.it/250x250" />
+              </div>
+              <div><small>Pizza Guy</small></div>
               </a>
+              <div><contributions key></div>
+            </td>
+          "
+    `)
+  })
+
+  it("outputs contributor without link when set to false", async () => {
+    const html = templates.table.contributor({
+      config,
+      contributor: { ...singleContributor, link: false },
+      contributions: "<contributions key>",
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "
+            <td align="center" valign="top" width="14.29%">
+              
+              <div>
+                <img width="100" src="https://place-hold.it/250x250" />
+              </div>
+              <div><small>Pizza Guy</small></div>
+              
+              <div><contributions key></div>
+            </td>
+          "
+    `)
+  })
+
+  it("outputs contributor without link when profile is missing", async () => {
+    const html = templates.table.contributor({
+      config,
+      contributor: { ...singleContributor, profile: undefined },
+      contributions: "<contributions key>",
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "
+            <td align="center" valign="top" width="14.29%">
+              
+              <div>
+                <img width="100" src="https://place-hold.it/250x250" />
+              </div>
+              <div><small>Pizza Guy</small></div>
+              
+              <div><contributions key></div>
+            </td>
+          "
+    `)
+  })
+
+  it("outputs contributor without link when disabled in config", async () => {
+    const html = templates.table.contributor({
+      config: Object.assign({}, config, {
+        table: { ...config.table, links: false },
+      }),
+      contributor: singleContributor,
+      contributions: "<contributions key>",
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "
+            <td align="center" valign="top" width="14.29%">
+              
+              <div>
+                <img width="100" src="https://place-hold.it/250x250" />
+              </div>
+              <div><small>Pizza Guy</small></div>
+              
               <div><contributions key></div>
             </td>
           "
