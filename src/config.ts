@@ -45,6 +45,7 @@ export async function loadConfig() {
     },
     image: {
       ...preConfig.image,
+      cellWidth: 96,
       ringWidth: preConfig.image.ringWidth > 4 ? 4 : preConfig.image.ringWidth,
       ringPadding: preConfig.image.ringPadding > 10 ? 10 : preConfig.image.ringPadding,
     },

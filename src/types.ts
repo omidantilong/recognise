@@ -8,7 +8,7 @@ export interface PreConfig {
   repoHost: string
   sort?: SortOptions
   table?: Omit<TableProps, "cellWidth">
-  image?: ImageProps
+  image?: Omit<ImageProps, "cellWidth">
 }
 
 export interface FinalConfig extends Required<PreConfig> {
@@ -26,6 +26,7 @@ export interface TableProps {
 
 export interface ImageProps {
   cells: number
+  cellWidth: number
   templates?: ImageTemplates
   ringColor?: string
   ringColorPin?: string

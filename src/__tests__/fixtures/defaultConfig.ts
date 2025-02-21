@@ -28,6 +28,7 @@ export async function defaultConfig(): Promise<FinalConfig> {
     },
     image: {
       cells: 12,
+      cellWidth: 96,
       ringColor: "#666666",
       ringColorPin: "#00FF00",
       ringPadding: 0,

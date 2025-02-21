@@ -51,8 +51,8 @@ export async function generateSVG(
         const cells = (
           await Promise.all(
             chunk.map(async (contributor, i) => {
-              const x = i * 96
-              const y = r * 96
+              const x = i * config.image.cellWidth
+              const y = r * config.image.cellWidth
 
               const image = await fetch(contributor.avatar_url)
                 .then((res) => res.arrayBuffer())
@@ -70,7 +70,7 @@ export async function generateSVG(
   return await config.image.templates.container({
     config,
     rows,
-    width: config.image.cells * 96,
-    height: chunks.length * 96,
+    width: config.image.cells * config.image.cellWidth,
+    height: chunks.length * config.image.cellWidth,
   })
 }

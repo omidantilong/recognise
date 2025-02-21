@@ -18,21 +18,25 @@ export const image: Required<ImageTemplates> = {
   }) {
     const ringColor = contributor.pin ? config.image.ringColorPin : config.image.ringColor
     const ringWidth = config.image.ringWidth
+    const outerSize = config.image.cellWidth
+    const imageSize = outerSize - 4
+    const center = outerSize / 2
+    const radius = center - 2
 
-    return html`<svg x="${x}" y="${y}" width="96" height="96">
+    return html`<svg x="${x}" y="${y}" width="${outerSize}" height="${outerSize}">
       <title>${contributor.name}</title>
       <image
-        width="92"
-        height="92"
+        width="${imageSize}"
+        height="${imageSize}"
         x="2"
         y="2"
         href="data:image/jpg;base64,${image}"
         clip-path="url(#clip-circle)"
       />
       <circle
-        cx="48"
-        cy="48"
-        r="46"
+        cx="${center}"
+        cy="${center}"
+        r="${radius}"
         stroke="${ringColor}"
         stroke-width="${ringWidth}"
         fill="none"
@@ -52,6 +56,8 @@ export const image: Required<ImageTemplates> = {
     rows: string
   }) {
     const ringPadding = config.image.ringPadding * 2
+    const center = config.image.cellWidth / 2
+    const radius = center - ringPadding - 2
     return html`<svg
       id="recognise-svg"
       version="1.1"
@@ -61,7 +67,7 @@ export const image: Required<ImageTemplates> = {
     >
       <defs>
         <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
-          <circle cx="48" cy="48" r="${46 - ringPadding}" />
+          <circle cx="${center}" cy="${center}" r="${radius}" />
         </clipPath>
       </defs>
       ${rows}
