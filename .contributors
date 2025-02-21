@@ -4,6 +4,7 @@
     "name": "Elli Roony",
     "avatar_url": "https://placedog.net/200x200?id=1",
     "profile": "https://example.com",
+    "pin": true,
     "contributions": [
       "code",
       "design"
