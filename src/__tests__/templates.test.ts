@@ -256,9 +256,12 @@ describe("image > contributor", async () => {
 })
 
 describe("image > container", async () => {
+  const config = await defaultConfig()
+
   it("injects svg content", async () => {
     const html = await templates.image.container({
-      rows: "<g><circle /><image /></g>",
+      config,
+      rows: "<svg><circle /><image /></svg>",
       width: 300,
       height: 100,
     })
@@ -276,7 +279,7 @@ describe("image > container", async () => {
                 <circle cx="48" cy="48" r="46" />
               </clipPath>
             </defs>
-            <g><circle /><image /></g>
+            <svg><circle /><image /></svg>
           </svg>"
     `)
   })
