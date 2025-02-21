@@ -188,7 +188,7 @@ describe("image > contributor", async () => {
     `)
   })
 
-  it("outputs custom ring color from config", async () => {
+  it("sets custom ring color", async () => {
     const html = await templates.image.contributor({
       config: { ...config, image: { ...config.image, ringColor: "#FF0000" } },
       contributor: singleContributor,
@@ -221,7 +221,7 @@ describe("image > contributor", async () => {
     `)
   })
 
-  it("outputs custom ring pin color from config", async () => {
+  it("sets custom ring pin color", async () => {
     const html = await templates.image.contributor({
       config: { ...config, image: { ...config.image, ringColorPin: "#FF0000" } },
       contributor: { ...singleContributor, pin: true },
