@@ -16,16 +16,18 @@ export const image: Required<ImageTemplates> = {
     x: number
     y: number
   }) {
-    return html`<g>
-      <circle cx="${48 + x}" cy="${48 + y}" r="47" stroke="black" strokeWidth="1" fill="none" />
+    return html`<svg x="${x}" y="${y}" width="96" height="96">
+      <title>${contributor.name}</title>
       <image
-        x="${1 + x}"
-        y="${1 + y}"
-        width="94"
-        height="94"
+        width="92"
+        height="92"
+        x="2"
+        y="2"
         href="data:image/jpg;base64,${image}"
         clip-path="url(#clip-circle)"
-    /></g>`
+      />
+      <circle cx="48" cy="48" r="46" stroke="black" strokeWidth="1" fill="none" />
+    </svg>`
   },
 
   container: async function ({
@@ -45,8 +47,8 @@ export const image: Required<ImageTemplates> = {
       xmlns:xlink="http://www.w3.org/1999/xlink"
     >
       <defs>
-        <clipPath id="clip-circle" clipPathUnits="objectBoundingBox">
-          <circle cx="0.5" cy="0.5" r="0.5" />
+        <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
+          <circle cx="48" cy="48" r="46" />
         </clipPath>
       </defs>
       ${rows}
