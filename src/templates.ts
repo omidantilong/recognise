@@ -16,11 +16,14 @@ export const image: Required<ImageTemplates> = {
     x: number
     y: number
   }) {
+    const outerSize = config.image.cellWidth
+
     const ringColor = contributor.pin ? config.image.ringColorPin : config.image.ringColor
     const ringWidth = config.image.ringWidth
-    const outerSize = config.image.cellWidth
-    const imageSize = outerSize - 4
-    const center = outerSize / 2
+    const ringMargin = config.image.ringMargin
+
+    const imageSize = outerSize - ringMargin - 4
+    const center = (outerSize - ringMargin) / 2
     const radius = center - 2
 
     return html`<svg x="${x}" y="${y}" width="${outerSize}" height="${outerSize}">
@@ -55,9 +58,14 @@ export const image: Required<ImageTemplates> = {
     height: number
     rows: string
   }) {
+    const outerSize = config.image.cellWidth
+
     const ringPadding = config.image.ringPadding * 2
-    const center = config.image.cellWidth / 2
+    const ringMargin = config.image.ringMargin
+
+    const center = (outerSize - ringMargin) / 2
     const radius = center - ringPadding - 2
+
     return html`<svg
       id="recognise-svg"
       version="1.1"

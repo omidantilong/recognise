@@ -13,6 +13,7 @@ export default defineConfig({
   image: {
     cells: 12,
     ringColor: "#666666",
+    ringMargin: 4,
     ringPadding: 2,
     ringWidth: 2,
   },

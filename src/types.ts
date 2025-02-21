@@ -30,6 +30,7 @@ export interface ImageProps {
   templates?: ImageTemplates
   ringColor?: string
   ringColorPin?: string
+  ringMargin?: number
   ringPadding?: number
   ringWidth?: number
 }

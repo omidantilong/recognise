@@ -70,7 +70,7 @@ export async function generateSVG(
   return await config.image.templates.container({
     config,
     rows,
-    width: config.image.cells * config.image.cellWidth,
-    height: chunks.length * config.image.cellWidth,
+    width: config.image.cells * config.image.cellWidth - config.image.ringMargin,
+    height: chunks.length * config.image.cellWidth - config.image.ringMargin,
   })
 }

@@ -28,6 +28,7 @@ export async function loadConfig() {
         cells: 12,
         ringColor: "#666666",
         ringColorPin: "#666666",
+        ringMargin: 2,
         ringPadding: 0,
         ringWidth: 1,
         templates: { ...templates.image },

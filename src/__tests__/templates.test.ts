@@ -169,17 +169,17 @@ describe("image > contributor", async () => {
       "<svg x="0" y="0" width="96" height="96">
             <title>Pizza Guy</title>
             <image
-              width="92"
-              height="92"
+              width="90"
+              height="90"
               x="2"
               y="2"
               href="data:image/jpg;base64,fake-base64-image"
               clip-path="url(#clip-circle)"
             />
             <circle
-              cx="48"
-              cy="48"
-              r="46"
+              cx="47"
+              cy="47"
+              r="45"
               stroke="#666666"
               stroke-width="1"
               fill="none"
@@ -202,17 +202,17 @@ describe("image > contributor", async () => {
       "<svg x="0" y="0" width="96" height="96">
             <title>Pizza Guy</title>
             <image
-              width="92"
-              height="92"
+              width="90"
+              height="90"
               x="2"
               y="2"
               href="data:image/jpg;base64,fake-base64-image"
               clip-path="url(#clip-circle)"
             />
             <circle
-              cx="48"
-              cy="48"
-              r="46"
+              cx="47"
+              cy="47"
+              r="45"
               stroke="#FF0000"
               stroke-width="1"
               fill="none"
@@ -235,17 +235,17 @@ describe("image > contributor", async () => {
       "<svg x="0" y="0" width="96" height="96">
             <title>Pizza Guy</title>
             <image
-              width="92"
-              height="92"
+              width="90"
+              height="90"
               x="2"
               y="2"
               href="data:image/jpg;base64,fake-base64-image"
               clip-path="url(#clip-circle)"
             />
             <circle
-              cx="48"
-              cy="48"
-              r="46"
+              cx="47"
+              cy="47"
+              r="45"
               stroke="#FF0000"
               stroke-width="1"
               fill="none"
@@ -276,7 +276,7 @@ describe("image > container", async () => {
           >
             <defs>
               <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
-                <circle cx="48" cy="48" r="46" />
+                <circle cx="47" cy="47" r="45" />
               </clipPath>
             </defs>
             <svg><circle /><image /></svg>
@@ -302,7 +302,7 @@ describe("image > container", async () => {
           >
             <defs>
               <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
-                <circle cx="48" cy="48" r="26" />
+                <circle cx="47" cy="47" r="25" />
               </clipPath>
             </defs>
             <svg><circle /><image /></svg>
