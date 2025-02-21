@@ -283,4 +283,30 @@ describe("image > container", async () => {
           </svg>"
     `)
   })
+
+  it("sets custom ring padding on clip path", async () => {
+    const html = await templates.image.container({
+      config: { ...config, image: { ...config.image, ringPadding: 10 } },
+      rows: "<svg><circle /><image /></svg>",
+      width: 300,
+      height: 100,
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "<svg
+            id="recognise-svg"
+            version="1.1"
+            viewBox="0 0 300 100"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <defs>
+              <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
+                <circle cx="48" cy="48" r="26" />
+              </clipPath>
+            </defs>
+            <svg><circle /><image /></svg>
+          </svg>"
+    `)
+  })
 })

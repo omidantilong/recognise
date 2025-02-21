@@ -30,6 +30,7 @@ export async function defaultConfig(): Promise<FinalConfig> {
       cells: 12,
       ringColor: "#666666",
       ringColorPin: "#00FF00",
+      ringPadding: 0,
       ringWidth: 1,
       templates: {
         contributor: () => "contributor",

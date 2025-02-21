@@ -7,7 +7,7 @@
     >
       <defs>
         <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
-          <circle cx="48" cy="48" r="46" />
+          <circle cx="48" cy="48" r="42" />
         </clipPath>
       </defs>
       <svg x="0" y="0" width="96" height="96">

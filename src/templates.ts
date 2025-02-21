@@ -41,14 +41,17 @@ export const image: Required<ImageTemplates> = {
   },
 
   container: async function ({
+    config,
     width,
     height,
     rows,
   }: {
+    config: FinalConfig
     width: number
     height: number
     rows: string
   }) {
+    const ringPadding = config.image.ringPadding * 2
     return html`<svg
       id="recognise-svg"
       version="1.1"
@@ -58,7 +61,7 @@ export const image: Required<ImageTemplates> = {
     >
       <defs>
         <clipPath id="clip-circle" clipPathUnits="userSpaceOnUse">
-          <circle cx="48" cy="48" r="46" />
+          <circle cx="48" cy="48" r="${46 - ringPadding}" />
         </clipPath>
       </defs>
       ${rows}

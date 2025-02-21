@@ -68,6 +68,7 @@ export async function generateSVG(
   ).join("")
 
   return await config.image.templates.container({
+    config,
     rows,
     width: config.image.cells * 96,
     height: chunks.length * 96,
