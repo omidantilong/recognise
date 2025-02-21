@@ -17,6 +17,16 @@ Heavily inspired by [all-contributors](https://allcontributors.org/) and [contri
 <td align="center" valign="top" width="14.29%">
   <a href="https://example.com">
   <div>
+    <img width="100" src="https://placedog.net/200x200?id=1" />
+  </div>
+  <div><small>Elli Roony</small></div>
+  </a>
+  <div><span title="code">💻</span><span title="design">🎨</span></div>
+</td>
+
+<td align="center" valign="top" width="14.29%">
+  <a href="https://example.com">
+  <div>
     <img width="100" src="https://placedog.net/200x200?id=24" />
   </div>
   <div><small>Abel Cominoli</small></div>
@@ -74,16 +84,6 @@ Heavily inspired by [all-contributors](https://allcontributors.org/) and [contri
   <div><span title="code">💻</span><span title="design">🎨</span></div>
 </td>
 
-<td align="center" valign="top" width="14.29%">
-  <a href="https://example.com">
-  <div>
-    <img width="100" src="https://placedog.net/200x200?id=2" />
-  </div>
-  <div><small>Cooper Restorick</small></div>
-  </a>
-  <div><span title="code">💻</span><span title="design">🎨</span></div>
-</td>
-
 </tr>
 
 <tr>
@@ -91,9 +91,9 @@ Heavily inspired by [all-contributors](https://allcontributors.org/) and [contri
 <td align="center" valign="top" width="14.29%">
   <a href="https://example.com">
   <div>
-    <img width="100" src="https://placedog.net/200x200?id=1" />
+    <img width="100" src="https://placedog.net/200x200?id=2" />
   </div>
-  <div><small>Elli Roony</small></div>
+  <div><small>Cooper Restorick</small></div>
   </a>
   <div><span title="code">💻</span><span title="design">🎨</span></div>
 </td>

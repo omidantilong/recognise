@@ -27,6 +27,9 @@ export interface TableProps {
 export interface ImageProps {
   cells: number
   templates?: ImageTemplates
+  ringColor?: string
+  ringColorPin?: string
+  ringWidth?: number
 }
 
 export interface TableTemplates {

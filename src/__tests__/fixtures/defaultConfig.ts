@@ -28,6 +28,9 @@ export async function defaultConfig(): Promise<FinalConfig> {
     },
     image: {
       cells: 12,
+      ringColor: "#666666",
+      ringColorPin: "#00FF00",
+      ringWidth: 1,
       templates: {
         contributor: () => "contributor",
         container: ({ rows }: { rows: string }) => `<svg>${rows}</svg>`,

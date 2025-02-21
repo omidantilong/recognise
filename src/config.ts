@@ -26,6 +26,9 @@ export async function loadConfig() {
       },
       image: {
         cells: 12,
+        ringColor: "#666666",
+        ringColorPin: "#666666",
+        ringWidth: 1,
         templates: { ...templates.image },
       },
     },
@@ -41,6 +44,7 @@ export async function loadConfig() {
     },
     image: {
       ...preConfig.image,
+      ringWidth: preConfig.image.ringWidth > 4 ? 4 : preConfig.image.ringWidth,
     },
   }
 

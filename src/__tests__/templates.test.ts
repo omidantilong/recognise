@@ -100,9 +100,7 @@ describe("table > contributor", async () => {
 
   it("outputs contributor without link when disabled in config", async () => {
     const html = templates.table.contributor({
-      config: Object.assign({}, config, {
-        table: { ...config.table, links: false },
-      }),
+      config: { ...config, table: { ...config.table, links: false } },
       contributor: singleContributor,
       contributions: "<contributions key>",
     })
@@ -178,7 +176,80 @@ describe("image > contributor", async () => {
               href="data:image/jpg;base64,fake-base64-image"
               clip-path="url(#clip-circle)"
             />
-            <circle cx="48" cy="48" r="46" stroke="black" strokeWidth="1" fill="none" />
+            <circle
+              cx="48"
+              cy="48"
+              r="46"
+              stroke="#666666"
+              stroke-width="1"
+              fill="none"
+            />
+          </svg>"
+    `)
+  })
+
+  it("outputs custom ring color from config", async () => {
+    const html = await templates.image.contributor({
+      config: { ...config, image: { ...config.image, ringColor: "#FF0000" } },
+      contributor: singleContributor,
+      contributions: "<contributions key>",
+      image: "fake-base64-image",
+      x: 0,
+      y: 0,
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "<svg x="0" y="0" width="96" height="96">
+            <title>Pizza Guy</title>
+            <image
+              width="92"
+              height="92"
+              x="2"
+              y="2"
+              href="data:image/jpg;base64,fake-base64-image"
+              clip-path="url(#clip-circle)"
+            />
+            <circle
+              cx="48"
+              cy="48"
+              r="46"
+              stroke="#FF0000"
+              stroke-width="1"
+              fill="none"
+            />
+          </svg>"
+    `)
+  })
+
+  it("outputs custom ring pin color from config", async () => {
+    const html = await templates.image.contributor({
+      config: { ...config, image: { ...config.image, ringColorPin: "#FF0000" } },
+      contributor: { ...singleContributor, pin: true },
+      contributions: "<contributions key>",
+      image: "fake-base64-image",
+      x: 0,
+      y: 0,
+    })
+
+    expect(html).toMatchInlineSnapshot(`
+      "<svg x="0" y="0" width="96" height="96">
+            <title>Pizza Guy</title>
+            <image
+              width="92"
+              height="92"
+              x="2"
+              y="2"
+              href="data:image/jpg;base64,fake-base64-image"
+              clip-path="url(#clip-circle)"
+            />
+            <circle
+              cx="48"
+              cy="48"
+              r="46"
+              stroke="#FF0000"
+              stroke-width="1"
+              fill="none"
+            />
           </svg>"
     `)
   })

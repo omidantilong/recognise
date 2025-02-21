@@ -16,6 +16,9 @@ export const image: Required<ImageTemplates> = {
     x: number
     y: number
   }) {
+    const ringColor = contributor.pin ? config.image.ringColorPin : config.image.ringColor
+    const ringWidth = config.image.ringWidth
+
     return html`<svg x="${x}" y="${y}" width="96" height="96">
       <title>${contributor.name}</title>
       <image
@@ -26,7 +29,14 @@ export const image: Required<ImageTemplates> = {
         href="data:image/jpg;base64,${image}"
         clip-path="url(#clip-circle)"
       />
-      <circle cx="48" cy="48" r="46" stroke="black" strokeWidth="1" fill="none" />
+      <circle
+        cx="48"
+        cy="48"
+        r="46"
+        stroke="${ringColor}"
+        stroke-width="${ringWidth}"
+        fill="none"
+      />
     </svg>`
   },
 
