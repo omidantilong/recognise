@@ -40,11 +40,6 @@ describe("list prepare", async () => {
   })
 
   it("sorts names a-z and preserves pins", () => {
-    const configWithSort: FinalConfig = {
-      ...config,
-      sort: "name",
-    }
-
     const contributorsWithHidden: Contributor[] = [
       contributors[0],
       contributors[1],
