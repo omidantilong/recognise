@@ -3,13 +3,14 @@ import { dictionary } from "./dictionary"
 import * as templates from "./templates"
 
 import type { FinalConfig, PreConfig } from "./types"
+import { RequiredDeep } from "type-fest"
 
 export function defineConfig(config: PreConfig) {
   return config
 }
 
 export async function loadConfig() {
-  const { config: preConfig }: { config: Required<PreConfig> } = await c12({
+  const { config: preConfig }: { config: RequiredDeep<PreConfig> } = await c12({
     name: "recognise",
     defaults: {
       files: ["README.md"],
@@ -20,11 +21,11 @@ export async function loadConfig() {
       sort: false,
       table: {
         cells: 7,
-        templates: {},
+        templates: { ...templates.table },
       },
       image: {
         cells: 12,
-        templates: {},
+        templates: { ...templates.image },
       },
     },
   })
@@ -36,19 +37,9 @@ export async function loadConfig() {
     table: {
       ...preConfig.table,
       cellWidth: +(100 / preConfig.table.cells).toFixed(2),
-      templates: {
-        contributions: preConfig.table?.templates?.contributions || templates.table.contributions,
-        contributor: preConfig.table?.templates?.contributor || templates.table.contributor,
-        row: preConfig.table?.templates?.row || templates.table.row,
-        container: preConfig.table?.templates?.container || templates.table.container,
-      },
     },
     image: {
       ...preConfig.image,
-      templates: {
-        contributor: preConfig.image?.templates?.contributor || templates.image.contributor,
-        container: preConfig.image?.templates?.container || templates.image.container,
-      },
     },
   }
 
